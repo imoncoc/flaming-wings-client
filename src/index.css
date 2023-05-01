@@ -12,6 +12,8 @@
   --wings-color-gray-4: #555;
   --wings-color-gray-5: #333;
   --wings-color-white: #fff;
+
+  --mainDark: #242325;
 }
 
 *{
@@ -26,4 +28,26 @@ body{
 
 .navbar {
   background: var(--wings-primary-color-tints-1);
+}
+
+.active {
+  color: var(--wings-primary-color) !important;
+}
+
+.service-link {
+  text-decoration: none;
+}
+
+.service-link:hover {
+  color: var(--wings-primary-color-tints-2);
+  text-decoration: none;
+}
+
+.text-wing-primary{
+  color: var(--wings-primary-color);
+}
+
+.footer{
+  /* background: var(--mainDark); */
+  background: var(--mainDark);
 }
