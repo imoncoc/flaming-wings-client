@@ -1,0 +1,21 @@
+
+
+.login {
+    background: var(--wings-primary-color-tints-3);
+    /* color: var(--wings-color-gray-5); */
+    color: var(--wings-primary-color-tints-1);
+}
+
+.login-btn {
+    background: transparent;
+    border: 0.1rem solid var(--wings-primary-color-tints-1);
+    color: var(--wings-primary-color-tints-1);
+    padding: 8px 16px;
+    border-radius: .3rem;
+    transition: all 0.3s;
+}
+
+.login-btn:hover {
+    background: var(--wings-primary-color-tints-1);
+    color: var(--wings-color-gray-5);
+}
