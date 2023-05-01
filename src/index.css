@@ -1,4 +1,19 @@
 
+:root{
+  --wings-primary-color: #e67e22;
+  --wings-primary-color-tints-1: #fdf2e9;
+  --wings-primary-color-tints-2: #fae5d3;
+  --wings-primary-color-tints-3: #eb984e;
+  --wings-shades-1: #cf711f;
+  --wings-shades-1: #45260a;
+  --wings-color-gray-1: #888;
+  --wings-color-gray-2: #767676;
+  --wings-color-gray-3: #6f6f6f;
+  --wings-color-gray-4: #555;
+  --wings-color-gray-5: #333;
+  --wings-color-white: #fff;
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -7,4 +22,8 @@
 
 body{
   font-family: 'Rubik', sans-serif;
+}
+
+.navbar {
+  background: var(--wings-primary-color-tints-1);
 }
