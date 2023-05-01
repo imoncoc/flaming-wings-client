@@ -1,16 +1,16 @@
 import React from 'react';
 import './Header.css'
-import { NavLink } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+// import { NavLink } from 'react-bootstrap';
+import { Link, NavLink } from "react-router-dom";
 import wings_logo from '../../assets/images/flaming-wings-logo.jpg'
 
 const Header = () => {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-light px-5 py-3">
+        <nav className="navbar navbar-expand-lg navbar-light px-5 py-3 fixed-top">
           <Link to="/" className="navbar-brand">
             {/* <h3>Book Now</h3> */}
-            <img src={wings_logo} alt="" className='img-fluid wings-logo'  />
+            <img src={wings_logo} alt="" className="img-fluid wings-logo" />
           </Link>
           <button
             className="navbar-toggler"
@@ -22,7 +22,7 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="myNavbar">
             <ul className="navbar-nav mx-auto">
-              <li className="nav-item">
+              <li className="nav-item fw-semibold">
                 <NavLink
                   to="/"
                   className={({ isActive }) =>
@@ -44,23 +44,24 @@ const Header = () => {
                   </NavLink>
                 </li>
               )} */}
-              <NavLink
-                to="/login"
-                className={({ isActive }) =>
-                  isActive ? "nav-link active" : "nav-link default"
-                }
-              >
-                Login
-              </NavLink>
-
-              <li className="nav-item">
+              <li className="nav-item fw-semibold">
                 <NavLink
-                  to="/confirmBooking"
+                  to="/blog"
                   className={({ isActive }) =>
                     isActive ? "nav-link active" : "nav-link default"
                   }
                 >
-                  Confirm Booking
+                  Blog
+                </NavLink>
+              </li>
+              <li className="fw-semibold">
+                <NavLink
+                  to="/login"
+                  className={({ isActive }) =>
+                    isActive ? " nav-link active" : "nav-link default"
+                  }
+                >
+                  Login
                 </NavLink>
               </li>
             </ul>

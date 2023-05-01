@@ -5,7 +5,7 @@
   --wings-primary-color-tints-2: #fae5d3;
   --wings-primary-color-tints-3: #eb984e;
   --wings-shades-1: #cf711f;
-  --wings-shades-1: #45260a;
+  --wings-shades-2: #45260a;
   --wings-color-gray-1: #888;
   --wings-color-gray-2: #767676;
   --wings-color-gray-3: #6f6f6f;
@@ -34,6 +34,10 @@ body{
   color: var(--wings-primary-color) !important;
 }
 
+.default{
+  color: #242325 !important;
+}
+
 .service-link {
   text-decoration: none;
 }
@@ -45,6 +49,20 @@ body{
 
 .text-wing-primary{
   color: var(--wings-primary-color);
+}
+
+.home-btn {
+  /* background-color: var(--wings-primary-color); */
+  background-color: var(--wings-shades-1) !important;
+  color: var(--wings-primary-color-tints-2) !important;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+}
+
+.home-btn:hover {
+  background-color: var(--wings-primary-color-tints-3) !important;
+  /* color: var(--wings-shades-2) ; */
 }
 
 .footer{

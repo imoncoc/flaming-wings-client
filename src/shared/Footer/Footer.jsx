@@ -8,29 +8,42 @@ import {
   faClock,
   faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
+import wings_logo from '../../assets/images/flaming-wings-logo.jpg'
+import './Footer.css'
 
 const Footer = () => {
     return (
       <footer id="footer" className="footer py-5">
         <div className="container">
           <div className="row">
-            <div className="col-md-4 px-3 text-center my-3">
+            <div className="col-lg-4 px-3 text-center my-5">
               <Link to="/" className="navbar-brand">
-                <h3 className="text-white fw-semibold">Book Now</h3>
+                <img
+                  src={wings_logo}
+                  className="img-fluid footer-logo"
+                  alt=""
+                />
+                {/* <h3 className="text-white fw-semibold">Book Now</h3> */}
               </Link>
-              <p className="text-muted my-3 text-start">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-                nam architecto saepe numquam dicta velit culpa laboriosam
-                expedita consectetur cum!
+              <p className="text-muted my-3 text-center text-sm-start ">
+                The ultimate destination for food lovers and aspiring chefs
+                alike! Our website is dedicated to celebrating the art of
+                cooking and the creativity of chefs around the world. Whether
+                you're a professional chef or a home cook, you'll find plenty of
+                inspiration, tips, and recipes on our site to take your cooking
+                skills to the next level.
               </p>
-              <a href="#" className="text-wing-primary service-link text-capitalize">
+              <a
+                href="#"
+                className="text-wing-primary service-link text-capitalize"
+              >
                 read more
                 <span className="ms-2">
                   <FontAwesomeIcon icon={faArrowRight} />
                 </span>
               </a>
             </div>
-            <div className="col-md-8 col-lg-6 col-xl-5 px-3 text-center my-3 mx-auto">
+            <div className="col-md-8 col-lg-6 col-xl-5 px-3 text-center my-5 mx-auto">
               <div className="row">
                 <div className="col text-center mb-3">
                   <h1 className="text-uppercase text-white">contact us</h1>
