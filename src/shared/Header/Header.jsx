@@ -2,7 +2,6 @@ import React from 'react';
 import './Header.css'
 // import { NavLink } from 'react-bootstrap';
 import { Link, NavLink } from "react-router-dom";
-import wings_logo from '../../assets/images/flaming-wings-logo.jpg'
 
 const Header = () => {
     return (
@@ -10,7 +9,11 @@ const Header = () => {
         <nav className="navbar navbar-expand-lg navbar-light px-5 py-3 ">
           <Link to="/" className="navbar-brand">
             {/* <h3>Book Now</h3> */}
-            <img src={wings_logo} alt="" className="img-fluid wings-logo" />
+            <img
+              src={"https://i.ibb.co/cgvpP9v/flaming-wings-logo.jpg"}
+              alt=""
+              className="img-fluid wings-logo"
+            />
           </Link>
           <button
             className="navbar-toggler"

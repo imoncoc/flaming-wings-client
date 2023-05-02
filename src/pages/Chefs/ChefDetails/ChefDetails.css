@@ -1,0 +1,23 @@
+.chefDetails-bg{
+    background: var(--wings-primary-color-tints-2);
+}
+
+.chefDetails-name{
+    font-size: 2.5rem;
+    color: var(--wings-primary-color);
+}
+
+.chefDetails-icon{
+    font-size: 2rem;
+    color: var(--wings-primary-color);
+    /* color: var(--wings-shades-1); */
+    cursor: pointer;
+}
+
+.chefDetails-color-primary{
+color: var(--wings-primary-color);
+}
+
+.chefDetails-p{
+    font-size: 1.1rem;
+}

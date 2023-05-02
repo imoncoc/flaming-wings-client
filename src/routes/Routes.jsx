@@ -6,6 +6,7 @@ import Blog from '../pages/Blog/Blog';
 import Login from '../pages/Login/Login';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
 import Register from '../pages/Register/Register';
+import ChefDetails from '../pages/Chefs/ChefDetails/ChefDetails';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+      {
+        path: "/chef/:id",
+        element: <ChefDetails></ChefDetails>,
+      }
     ],
   },
 ]);

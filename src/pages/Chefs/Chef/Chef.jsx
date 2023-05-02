@@ -7,12 +7,12 @@ import SingleChef from "../SingleChef/SingleChef";
 
 const Chef = () => {
     const [chef, setChef] = useState([]);
-    console.log(chef)
+    // console.log(chef)
 
 
     useEffect(()=> {
-        // fetch("https://flaming-wings-assignment-10-imoncoc.vercel.app/chef")
-        fetch("http://localhost:5000/chef")
+        fetch("https://flaming-wings-assignment-10-imoncoc.vercel.app/chef")
+        // fetch("http://localhost:5000/chef")
           .then((res) => res.json())
           .then((data) => {
             setChef(data);

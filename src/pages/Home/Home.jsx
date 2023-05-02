@@ -1,6 +1,5 @@
 import React from 'react';
 import './Home.css'
-import flamingWings from '../../assets/images/flaming-wings.jpg'
 import Chef from '../Chefs/Chef/Chef';
 
 const Home = () => {

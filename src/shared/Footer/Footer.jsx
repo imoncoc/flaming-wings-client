@@ -8,7 +8,6 @@ import {
   faClock,
   faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
-import wings_logo from '../../assets/images/flaming-wings-logo.jpg'
 import './Footer.css'
 
 const Footer = () => {
@@ -19,7 +18,7 @@ const Footer = () => {
             <div className="col-lg-4 px-3 text-center my-5">
               <Link to="/" className="navbar-brand">
                 <img
-                  src={wings_logo}
+                  src={"https://i.ibb.co/cgvpP9v/flaming-wings-logo.jpg"}
                   className="img-fluid footer-logo"
                   alt=""
                 />

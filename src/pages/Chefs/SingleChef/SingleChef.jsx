@@ -15,7 +15,7 @@ const SingleChef = ({singleChef}) => {
       profilePicture,
       role,
     } = singleChef;
-    console.log(experience)
+    // console.log(experience)
 
 
 
@@ -38,7 +38,8 @@ const SingleChef = ({singleChef}) => {
               <h6 className="customer-job text-capitalize chef-role">{role}</h6>
               <p className="customer-quote text-center mx-auto text-muted">
                 Chef John has been working in the culinary industry for over{" "}
-                <span className='chef-title fw-semibold'>{experience}</span> years.
+                <span className="chef-title fw-semibold">{experience}</span>{" "}
+                years.
               </p>
 
               <div className="d-flex justify-content-center">
@@ -55,7 +56,9 @@ const SingleChef = ({singleChef}) => {
                 </p>
               </div>
 
-              <button className="btn home-btn w-100">View Recipe</button>
+              <Link to={`/chef/${id}`}>
+                <button className="btn home-btn w-100">View Recipe</button>
+              </Link>
             </div>
           </div>
         </div>

@@ -13,14 +13,14 @@
 }
 
 .customer-name {
-    color: var(--mainBlue);
+    /* color: var(--mainBlue); */
     margin: 0.5rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .customer-icon {
     font-size: 2rem;
-    color: var(--mainGrey);
+    /* color: var(--mainGrey); */
 }
 
 .customer-quote {
