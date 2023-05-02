@@ -37,7 +37,8 @@ const SingleChef = ({singleChef}) => {
               </div>
               <h6 className="customer-job text-capitalize chef-role">{role}</h6>
               <p className="customer-quote text-center mx-auto text-muted">
-                Chef John has been working in the culinary industry for over{" "}
+                Chef <span className="chef-title fw-semibold">{name}</span> been
+                working in the culinary industry for over{" "}
                 <span className="chef-title fw-semibold">{experience}</span>{" "}
                 years.
               </p>

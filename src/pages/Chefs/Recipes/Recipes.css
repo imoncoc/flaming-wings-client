@@ -2,3 +2,16 @@
     cursor: pointer;
     color: var(--wings-primary-color);
 }
+.ingredients{
+    color: var(--wings-shades-1);
+}
+.favorite-icon{
+    font-size: 1.2rem;
+}
+.strArea{
+    background: var(--wings-primary-color);
+    color: white;
+    padding: 0.4rem;
+    border-radius: 1rem;
+    font-size: 0.7rem;
+}

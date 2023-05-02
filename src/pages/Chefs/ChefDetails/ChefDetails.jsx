@@ -5,17 +5,24 @@ import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import Recipes from '../Recipes/Recipes';
+import Swal from "sweetalert2";
 
-const ChefDetails = ({props}) => {
-  console.log(props)
+const ChefDetails = () => {
+  // console.log(props)
   const {id} = useParams()
-  console.log(id)
+  // console.log(id)
   const [chef, setChef] = useState([]);
   const [recipes, setRecipes] = useState([]);
+  const [bookmark, setBookmark] = useState(false);
 
-
-  console.log(chef)
-  console.log(recipes)
+  const handleBookMark = ()=>{
+    setBookmark(!bookmark)
+    if (bookmark) {
+      Swal.fire("Oops!", "Chef Remove From Bookmark!", "error");
+    } else {
+      Swal.fire("Success!", "Successfully added into Bookmark!", "success");
+    }
+  }
 
    useEffect(()=>{
     fetch(
@@ -52,7 +59,19 @@ const ChefDetails = ({props}) => {
               <div className="div">
                 <div className="d-flex justify-content-between align-items-center">
                   <h2 className="chefDetails-name">{chef.name}</h2>
-                  <p className="chefDetails-icon" title="Bookmark it?">
+                  <p
+                    className={
+                      bookmark
+                        ? "chefDetails-icon"
+                        : "chefDetails-icon text-muted "
+                    }
+                    onClick={handleBookMark}
+                    title={
+                      !bookmark
+                        ? "Added into Bookmark?"
+                        : "Remove From Bookmark?"
+                    }
+                  >
                     <FontAwesomeIcon icon={faBookmark} />
                   </p>
                 </div>
@@ -66,8 +85,8 @@ const ChefDetails = ({props}) => {
                 </p>
                 <p className="chefDetails-p">
                   <span className="chefDetails-color-primary">Experience:</span>{" "}
-                  Chef John has been working in the culinary industry for over{" "}
-                  {chef.experience} years.
+                  Chef {chef.name} been working in the culinary industry for
+                  over {chef.experience} years.
                 </p>
                 <p className="chefDetails-p">
                   <span className="chefDetails-color-primary">About:</span>{" "}
@@ -76,6 +95,10 @@ const ChefDetails = ({props}) => {
                 <p className="chefDetails-p">
                   <span className="chefDetails-color-primary">Likes:</span> More
                   then {chef.likes} peoples likes {chef.name} Recipes
+                </p>
+                <p className="chefDetails-p">
+                  <span className="chefDetails-color-primary">Country: </span>
+                  {chef.country}
                 </p>
               </div>
             </div>

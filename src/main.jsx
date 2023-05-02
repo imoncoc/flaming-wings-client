@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { RouterProvider } from "react-router-dom";
 import router from './routes/Routes.jsx';
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 
 
 

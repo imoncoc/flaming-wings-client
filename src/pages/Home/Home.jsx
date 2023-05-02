@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.css'
 import Chef from '../Chefs/Chef/Chef';
+import CustomerReview from '../CustomerReview/CustomerReview';
 
 const Home = () => {
     return (
@@ -39,6 +40,7 @@ const Home = () => {
 
         </div>
           <Chef></Chef>
+          <CustomerReview></CustomerReview>
       </>
     );
 };
