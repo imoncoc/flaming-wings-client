@@ -7,7 +7,7 @@ import wings_logo from '../../assets/images/flaming-wings-logo.jpg'
 const Header = () => {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-light px-5 py-3 fixed-top">
+        <nav className="navbar navbar-expand-lg navbar-light px-5 py-3 ">
           <Link to="/" className="navbar-brand">
             {/* <h3>Book Now</h3> */}
             <img src={wings_logo} alt="" className="img-fluid wings-logo" />

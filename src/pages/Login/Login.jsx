@@ -19,8 +19,8 @@ const Login = () => {
       <div className="container">
         <div className="row">
           <div
-            className="col-10 col-md-6 p-5 mx-auto login rounded mb-5"
-            style={{ marginTop: "10rem" }}
+            className="col-10 col-md-6 p-5 mx-auto login rounded my-5"
+            
           >
             <h2 className="text-center mb-2 fw-semibold opacity-75">Login</h2>
             <form onSubmit={handleSubmit(onSubmit)}>

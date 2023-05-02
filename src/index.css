@@ -65,6 +65,28 @@ body{
   /* color: var(--wings-shades-2) ; */
 }
 
+.title-underline {
+  width: 12rem;
+  height: 0.3rem;
+  position: relative;
+  border-radius: 2rem;
+}
+
+.title-underline__center {
+  position: absolute;
+  height: 0.6rem;
+  width: 50%;
+  background: var(--wings-primary-color);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 1rem;
+}
+
+.color-mainDark{
+  color: var(--wings-color-gray-4);
+}
+
 .footer{
   /* background: var(--mainDark); */
   background: var(--mainDark);
