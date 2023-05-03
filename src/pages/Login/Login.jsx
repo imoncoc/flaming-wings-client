@@ -1,29 +1,50 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Login.css'
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faFaceAngry } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { AuthContext } from '../../providers/AuthProviders';
+import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 const Login = () => {
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
     const {register, formState: {errors}, handleSubmit, reset} = useForm();
     const [showPassword, setShowPassword] = useState(false)
+    console.log(signIn)
+    
 
 
     const onSubmit = (data) => {
         const {email, password} = data;
         console.log(email, password)
 
-        reset();
+        signIn(email, password)
+        .then((result) => {
+          const loggedUser = result.user;
+          console.log(loggedUser)
+          reset()
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+
+    const handleGoogleSignIn = () => {
+      signInWithGoogle()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => {
+        console.log(error)
+      })
     }
 
     return (
       <div className="container">
         <div className="row">
-          <div
-            className="col-10 col-md-6 p-5 mx-auto login rounded my-5"
-            
-          >
+          <div className="col-10 col-md-6 p-5 mx-auto login rounded my-5">
             <h2 className="text-center mb-2 fw-semibold opacity-75">Login</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-3">
@@ -67,8 +88,8 @@ const Login = () => {
                     /> */}
                     <FontAwesomeIcon
                       icon={faEye}
-                      className={ showPassword? "text-danger" : "text-dark"}
-                      style={{cursor: "pointer"}}
+                      className={showPassword ? "text-danger" : "text-dark"}
+                      style={{ cursor: "pointer" }}
                       onClick={() => setShowPassword(!showPassword)}
                     />
                   </div>
@@ -93,6 +114,18 @@ const Login = () => {
                 </button>
               </div>
             </form>
+
+            {/* Google Login */}
+            <div className="my-3">
+              <div className="google-login d-flex align-items-center justify-content-center" >
+                <FontAwesomeIcon
+                  className="google-icon"
+                  onClick={handleGoogleSignIn}
+                  icon={faGoogle}
+                />
+                <p className='align-self-center mx-auto my-2'>Login With Google</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
