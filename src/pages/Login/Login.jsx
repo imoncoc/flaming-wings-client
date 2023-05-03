@@ -6,13 +6,15 @@ import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Login = () => {
-    const {register, formState: {errors}, handleSubmit} = useForm();
+    const {register, formState: {errors}, handleSubmit, reset} = useForm();
     const [showPassword, setShowPassword] = useState(false)
 
 
     const onSubmit = (data) => {
         const {email, password} = data;
         console.log(email, password)
+
+        reset();
     }
 
     return (

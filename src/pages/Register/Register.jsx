@@ -1,24 +1,37 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Register.css'
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { AuthContext } from '../../providers/AuthProviders';
 
 const Register = () => {
      const [showPassword, setShowPassword] = useState(false);
      const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+     const {createUser} = useContext(AuthContext)
+
      const {
        register,
        formState: { errors },
        handleSubmit,
+       reset
      } = useForm();
 
      const onSubmit = (data) => {
        console.log(data.name, data.email, data.password, data.confirmPassword);
        const { email, password, name, confirmPassword } = data;
-       console.log(email, password, name, confirmPassword);
+      //  console.log(email, password, name, confirmPassword);
+       createUser(email, password)
+       .then((result) => {
+        const createdUser = result.user;
+        console.log(createdUser);
+        reset();
+       })
+       .catch((error) => {
+        console.log(error)
+       })
      };
 
      const passwordRegex =
