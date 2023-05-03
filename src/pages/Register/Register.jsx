@@ -1,16 +1,21 @@
 import React, { useContext, useState } from 'react';
 import './Register.css'
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AuthContext } from '../../providers/AuthProviders';
+import { updateProfile } from 'firebase/auth';
+import Swal from "sweetalert2";
 
 const Register = () => {
      const [showPassword, setShowPassword] = useState(false);
      const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-     const {createUser} = useContext(AuthContext)
+     const {createUser, auth} = useContext(AuthContext)
+    //  console.log(auth)
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
      const {
        register,
@@ -21,16 +26,23 @@ const Register = () => {
 
      const onSubmit = (data) => {
        console.log(data.name, data.email, data.password, data.confirmPassword);
-       const { email, password, name, confirmPassword } = data;
+       const { email, password, name, confirmPassword, photoUrl } = data;
       //  console.log(email, password, name, confirmPassword);
        createUser(email, password)
        .then((result) => {
         const createdUser = result.user;
-        console.log(createdUser);
+        // console.log(createdUser);
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: photoUrl
+        })
+        Swal.fire("Success!", "Successfully Register into account!", "success");
         reset();
+        navigate(from, {replace: true})
        })
        .catch((error) => {
-        console.log(error)
+        // console.log(error)
+        Swal.fire("Oops...!", `${error.message}`, "error");
        })
      };
 
@@ -82,6 +94,23 @@ const Register = () => {
                 {errors.email && (
                   <p role="alert" className="alert alert-danger my-2 p-2">
                     {errors.email.message}
+                  </p>
+                )}
+              </div>
+
+              <div className="mb-3">
+                <label className="form-label">Photo Url</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="photoUrl"
+                  {...register("photoUrl", {
+                    required: "required",
+                  })}
+                />
+                {errors.photoUrl && (
+                  <p role="alert" className="alert alert-danger my-2 p-2">
+                    {errors.photoUrl.message}
                   </p>
                 )}
               </div>
@@ -205,7 +234,7 @@ const Register = () => {
                 </p>
               </div>
               <div className="text-center">
-                <button type="submit" className="login-btn w-100">
+                <button type="submit" className="login-btn w-100 fw-bold">
                   Submit
                 </button>
               </div>

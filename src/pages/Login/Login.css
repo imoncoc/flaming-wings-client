@@ -21,15 +21,37 @@
 }
 
 .google-login{
-    background: #DB4437;
+    /* background: #DB4437; */
+    background: white;
+    color: #4285F4;
     padding: 0.4rem;
     border-radius: .5rem;
     cursor: pointer;
+    font-weight: 600;
 }
 .google-icon{
     font-size: 1.2rem;
     background: white;
     color: #DB4437;
+    border-radius: 50%;
+    padding: 0.2rem;
+    margin-left: 1rem;
+}
+
+.github-login {
+    /* background: #DB4437; */
+    background: #1B1F23;
+    color: white;
+    padding: 0.4rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.github-icon {
+    font-size: 1.2rem;
+    background: white;
+    color: #1B1F23;
     border-radius: 50%;
     padding: 0.2rem;
     margin-left: 1rem;

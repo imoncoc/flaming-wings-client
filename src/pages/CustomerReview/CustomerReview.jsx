@@ -3,7 +3,7 @@ import './CustomerReview.css'
 
 const CustomerReview = () => {
   const [images, setImages] = useState([])
-  console.log(images)
+  // console.log(images)
 
   useEffect(()=>{
     fetch(

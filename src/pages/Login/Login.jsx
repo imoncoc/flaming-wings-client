@@ -1,17 +1,21 @@
 import React, { useContext, useState } from 'react';
 import './Login.css'
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import { faEye, faFaceAngry } from '@fortawesome/free-solid-svg-icons';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AuthContext } from '../../providers/AuthProviders';
-import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
+import Swal from "sweetalert2";
 
 const Login = () => {
-  const { signIn, signInWithGoogle } = useContext(AuthContext);
+  const { signIn, signInWithGoogle, signInWithGithub } =
+    useContext(AuthContext);
     const {register, formState: {errors}, handleSubmit, reset} = useForm();
     const [showPassword, setShowPassword] = useState(false)
-    console.log(signIn)
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     
 
 
@@ -23,10 +27,13 @@ const Login = () => {
         .then((result) => {
           const loggedUser = result.user;
           console.log(loggedUser)
+          Swal.fire("Success!", "Successfully Login into account!", "success");
           reset()
+          navigate(from, {replace: true})
         })
         .catch((error) => {
-          console.log(error)
+          // console.log(error)
+          Swal.fire("Oops...!", `${error.message}`, "error");
         })
     }
 
@@ -34,10 +41,27 @@ const Login = () => {
       signInWithGoogle()
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        // console.log(loggedUser);
+        Swal.fire("Success!", "Successfully Login with Google!", "success");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log(error)
+        // console.log(error)
+        Swal.fire("Oops...!", `${error.message}`, "error");
+      })
+    }
+
+    const handleGithubSignIn = () => {
+      signInWithGithub()
+      .then((result) => {
+        const loggedUser = result.user;
+        // console.log(loggedUser)
+        Swal.fire("Success!", "Successfully Login with Github!", "success");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        // console.log(error);
+        Swal.fire("Oops...!", `${error.message}`, "error");
       })
     }
 
@@ -109,7 +133,7 @@ const Login = () => {
                 </p>
               </div>
               <div className="text-center">
-                <button type="submit" className="login-btn w-100">
+                <button type="submit" className="login-btn w-100 fw-bold">
                   Submit
                 </button>
               </div>
@@ -117,13 +141,25 @@ const Login = () => {
 
             {/* Google Login */}
             <div className="my-3">
-              <div className="google-login d-flex align-items-center justify-content-center" >
+              <div
+                className="google-login d-flex align-items-center justify-content-center"
+                onClick={handleGoogleSignIn}
+              >
+                <FontAwesomeIcon className="google-icon" icon={faGoogle} />
+                <p className="align-self-center mx-auto my-2">
+                  Login With Google
+                </p>
+              </div>
+              <div className="github-login d-flex align-items-center justify-content-center mt-2"
+              onClick={handleGithubSignIn}>
                 <FontAwesomeIcon
-                  className="google-icon"
+                  className="github-icon"
                   onClick={handleGoogleSignIn}
-                  icon={faGoogle}
+                  icon={faGithub}
                 />
-                <p className='align-self-center mx-auto my-2'>Login With Google</p>
+                <p className="align-self-center mx-auto my-2">
+                  Login With Github
+                </p>
               </div>
             </div>
           </div>

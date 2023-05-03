@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = () => {
   const { logOut, user } = useContext(AuthContext)
+  // console.log("Header", user)
 
 
   const handleLogout = () => {
