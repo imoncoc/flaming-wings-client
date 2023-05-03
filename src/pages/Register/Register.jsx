@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Register.css'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -21,6 +21,7 @@ const Register = () => {
        register,
        formState: { errors },
        handleSubmit,
+       watch,
        reset
      } = useForm();
 
@@ -48,6 +49,10 @@ const Register = () => {
 
      const passwordRegex =
        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+
+
+     const password = watch('password');
+     const confirmPassword = watch('confirmPassword')
 
 
 
@@ -183,7 +188,7 @@ const Register = () => {
 
               {/* Confirm Password */}
               <label className="form-label">Confirm Password</label>
-              <div className="input-group mb-3">
+              {/* <div className="input-group mb-3">
                 <input
                   type={showConfirmPassword ? "text" : "password"}
                   className="form-control"
@@ -202,13 +207,6 @@ const Register = () => {
                   })}
                 />
                 <div className="input-group-text">
-                  {/* <input
-                    className="form-check-input mt-0"
-                    type="checkbox"
-                    value="confirmPassword"
-                    aria-label="Checkbox for following text input"
-                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  /> */}
                   <FontAwesomeIcon
                     icon={faEye}
                     className={
@@ -222,6 +220,31 @@ const Register = () => {
               {errors.confirmPassword && (
                 <p role="alert" className="alert alert-danger my-2 p-2">
                   {errors.confirmPassword.message}
+                </p>
+              )} */}
+              <div className="input-group mb-3">
+                <input
+                  type={showConfirmPassword ? "text" : "password"}
+                  className="form-control"
+                  aria-label="Text input with checkbox for Password"
+                  {...register("confirmPassword", {
+                    required: "required",
+                  })}
+                />
+                <div className="input-group-text">
+                  <FontAwesomeIcon
+                    icon={faEye}
+                    className={
+                      showConfirmPassword ? "text-danger" : "text-dark"
+                    }
+                    style={{ cursor: "pointer" }}
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  />
+                </div>
+              </div>
+              {password !== confirmPassword && (
+                <p role="alert" className="alert alert-danger my-2 p-2">
+                  {"Password do not match"}
                 </p>
               )}
 

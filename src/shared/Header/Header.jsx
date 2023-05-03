@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = () => {
   const { logOut, user } = useContext(AuthContext)
-  // console.log("Header", user)
+  console.log("Header", user)
 
 
   const handleLogout = () => {
@@ -90,7 +90,7 @@ const Header = () => {
                 </NavLink>
               </li>
             </ul>
-            <div className="d-flex d-lg-flex align-items-baseline justify-content-between">
+            {/* <div className="d-flex d-lg-flex align-items-baseline justify-content-between">
               <p className="text-dark me-4">
                 <span className="me-2 phone-icon">
                   <FontAwesomeIcon icon={faUser} />
@@ -106,7 +106,50 @@ const Header = () => {
                   <button className="btn btn-primary">Login</button>
                 </Link>
               )}
-            </div>
+            </div> */}
+
+            {user ? (
+              <div
+                className="d-flex justify-content-between align-items-center text-center"
+                style={{ width: "20rem" }}
+              >
+                <div className="d-flex align-items-center">
+                  {user.photoURL ? (
+                    <img
+                      src={user.photoURL}
+                      title={
+                        user.displayName ? user.displayName : "No Name Found!"
+                      }
+                      alt=""
+                      className="user-img img-fluid"
+                    />
+                  ) : (
+                    <p
+                      className="phone-icon"
+                      title={
+                        user?.displayName ? user.displayName : "No Name Found!"
+                      }
+                    >
+                      <FontAwesomeIcon icon={faUser} />
+                    </p>
+                  )}
+                  <p className="user-email my-2 ms-1 fw-semibold">
+                    {user.email ? (
+                      user.email
+                    ) : (
+                      <span style={{fontSize: "0.8rem"}}>User don't have any email.</span>
+                    )}
+                  </p>
+                </div>
+                <button className="btn btn-danger" onClick={handleLogout}>
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <Link to="/login">
+                <button className="btn home-btn">Login</button>
+              </Link>
+            )}
           </div>
         </nav>
       </div>
