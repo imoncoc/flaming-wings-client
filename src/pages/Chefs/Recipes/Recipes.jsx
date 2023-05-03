@@ -111,8 +111,9 @@ const Recipes = ({recipe}) => {
             <button
               className="btn home-btn w-100 mt-3"
               onClick={handleFavorite}
+              disabled={favorite}
             >
-              {!favorite ? "Make Recipe Favorite" : "Remove Favorite"}
+              Favorite Recipe
             </button>
           </div>
         </div>
