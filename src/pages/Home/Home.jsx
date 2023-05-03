@@ -3,6 +3,8 @@ import './Home.css'
 import Chef from '../Chefs/Chef/Chef';
 import CustomerReview from '../CustomerReview/CustomerReview';
 import LoadingSpinner from '../../shared/LoadingSpinner/LoadingSpinner';
+import Pricing from '../AboutUs/AboutUs';
+import AboutUs from '../AboutUs/AboutUs';
 
 const Home = () => {
     return (
@@ -38,10 +40,10 @@ const Home = () => {
               </div>
             </div>
           </div>
-
         </div>
-          <Chef></Chef>
-          <CustomerReview></CustomerReview>
+        <Chef></Chef>
+        <AboutUs></AboutUs>
+        <CustomerReview></CustomerReview>
       </>
     );
 };

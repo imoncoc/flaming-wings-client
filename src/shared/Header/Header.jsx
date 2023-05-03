@@ -79,7 +79,7 @@ const Header = () => {
                   Blog
                 </NavLink>
               </li>
-              <li className="fw-semibold">
+              {/* <li className="fw-semibold">
                 <NavLink
                   to="/login"
                   className={({ isActive }) =>
@@ -88,7 +88,7 @@ const Header = () => {
                 >
                   Login
                 </NavLink>
-              </li>
+              </li> */}
             </ul>
             {/* <div className="d-flex d-lg-flex align-items-baseline justify-content-between">
               <p className="text-dark me-4">
@@ -110,13 +110,13 @@ const Header = () => {
 
             {user ? (
               <div
-                className="d-flex justify-content-between align-items-center text-center"
+                className="d-flex justify-content-around align-items-center text-center"
                 style={{ width: "20rem" }}
               >
                 <div className="d-flex align-items-center">
                   {user.photoURL ? (
                     <img
-                      src={user.photoURL}
+                      src={user?.photoURL}
                       title={
                         user.displayName ? user.displayName : "No Name Found!"
                       }
@@ -124,20 +124,20 @@ const Header = () => {
                       className="user-img img-fluid"
                     />
                   ) : (
-                    <p
+                    <div
                       className="phone-icon"
                       title={
                         user?.displayName ? user.displayName : "No Name Found!"
                       }
                     >
-                      <FontAwesomeIcon icon={faUser} />
-                    </p>
+                      <FontAwesomeIcon className='user-icon' icon={faUser} />
+                    </div>
                   )}
                   <p className="user-email my-2 ms-1 fw-semibold">
                     {user.email ? (
                       user.email
                     ) : (
-                      <span style={{fontSize: "0.8rem"}}>User don't have any email.</span>
+                      <span style={{fontSize: "0.8rem"}}>No Gmail.</span>
                     )}
                   </p>
                 </div>

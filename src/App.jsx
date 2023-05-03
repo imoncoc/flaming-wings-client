@@ -6,29 +6,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from './shared/Header/Header';
 import { Outlet } from 'react-router-dom';
 import Footer from './shared/Footer/Footer';
-import LoadingSpinner from './shared/LoadingSpinner/LoadingSpinner';
+import {Circle2} from 'react-preloaders';
 
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
 
-   useEffect(() => {
-
-    const timeout = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000)})
+   
 
   return (
     <>
-      {isLoading ? (
-        <LoadingSpinner></LoadingSpinner>
-      ) : (
-        <>
-          <Header></Header>
-          <Outlet></Outlet>
-          <Footer></Footer>
-        </>
-      )}
+      <Header></Header>
+      <Outlet></Outlet>
+      <Footer></Footer>
+      <Circle2 time={1500}></Circle2>
     </>
   );
 }

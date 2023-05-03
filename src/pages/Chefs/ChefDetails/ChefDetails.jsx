@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import Recipes from '../Recipes/Recipes';
 import Swal from "sweetalert2";
+import ErrorPage from '../../ErrorPage/ErrorPage';
 
 const ChefDetails = () => {
   // console.log(props)
@@ -14,6 +15,7 @@ const ChefDetails = () => {
   const [chef, setChef] = useState([]);
   const [recipes, setRecipes] = useState([]);
   const [bookmark, setBookmark] = useState(false);
+  console.log(chef, recipes)
 
   const handleBookMark = ()=>{
     setBookmark(!bookmark)
@@ -35,6 +37,11 @@ const ChefDetails = () => {
     })
     .catch((error) => console.log(error));
    }, [])
+
+   if(chef.length > 0){
+    <ErrorPage></ErrorPage>
+   }
+
     return (
       <>
         <div className="container">
@@ -71,6 +78,9 @@ const ChefDetails = () => {
                         ? "Added into Bookmark?"
                         : "Remove From Bookmark?"
                     }
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    data-bs-title="Tooltip on bottom"
                   >
                     <FontAwesomeIcon icon={faBookmark} />
                   </p>

@@ -1,0 +1,30 @@
+.banner {
+    color: #333;
+    /* margin-top: -4rem; */
+}
+
+.banner-title {
+    color: var(--wings-primary-color-tints-3);
+    font-size: 4rem;
+}
+
+.about-img__container {
+    position: relative;
+}
+
+.about-img__container::before {
+    content: "";
+    position: absolute;
+    top: -1.5rem;
+    left: -1.7rem;
+    width: 100%;
+    height: 100%;
+    outline: 0.8rem solid var(--wings-primary-color-tints-3);
+    z-index: -1;
+    transition: all 1s linear;
+}
+
+.about-img__container:hover::before {
+    top: 0;
+    left: 0;
+}
