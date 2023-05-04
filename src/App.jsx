@@ -7,10 +7,12 @@ import Header from './shared/Header/Header';
 import { Outlet } from 'react-router-dom';
 import Footer from './shared/Footer/Footer';
 import {Circle2} from 'react-preloaders';
+import { useContext } from 'react';
+import { AuthContext } from './providers/AuthProviders';
 
 
 function App() {
-
+  const {preloader} = useContext(AuthContext)
    
 
   return (
@@ -18,7 +20,7 @@ function App() {
       <Header></Header>
       <Outlet></Outlet>
       <Footer></Footer>
-      <Circle2 time={1500}></Circle2>
+      <Circle2 customLoading={preloader} color={"#e67e22"}></Circle2>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './Register.css'
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate, useNavigation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,11 +11,16 @@ import Swal from "sweetalert2";
 const Register = () => {
      const [showPassword, setShowPassword] = useState(false);
      const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-     const {createUser, auth} = useContext(AuthContext)
+     const { createUser, auth, setPreloader } = useContext(AuthContext);
     //  console.log(auth)
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
+    const loaderNavigation = useNavigation();
+
+    if (loaderNavigation.state === "idle") {
+      setPreloader(false);
+    }
 
      const {
        register,

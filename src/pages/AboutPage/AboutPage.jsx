@@ -1,7 +1,15 @@
 import React from 'react';
 import './AboutPage.css'
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProviders';
+import { useNavigation } from 'react-router-dom';
 
 const AboutPage = () => {
+  const { setPreloader } = useContext(AuthContext);
+  const navigation = useNavigation();
+  if (navigation.state === "idle") {
+    setPreloader(false);
+  }
     return (
       <div className="bg-about">
         <div className="container">

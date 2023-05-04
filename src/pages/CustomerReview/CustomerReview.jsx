@@ -2,21 +2,17 @@ import React, { useEffect, useState } from 'react';
 import './CustomerReview.css'
 import LazyLoad from 'react-lazy-load';
 import { useNavigation } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProviders';
 
 const CustomerReview = () => {
   const [images, setImages] = useState([])
   // console.log(images)
+  const {setPreloader} = useContext(AuthContext);
 
   const navigation = useNavigation();
   if (navigation.state === "loading") {
-    return (
-      <div
-        className="col d-flex justify-content-center align-items-center"
-        style={{ height: "60vh" }}
-      >
-        <FadeLoader color="#e67e22" />
-      </div>
-    );
+    setPreloader(false)
   }
 
 
@@ -25,7 +21,10 @@ const CustomerReview = () => {
       "https://flaming-wings-assignment-10-imoncoc.vercel.app/recipe/allImages"
     )
       .then((res) => res.json())
-      .then((data) => setImages(data))
+      .then((data) => {
+        setImages(data);
+        setPreloader(false);
+      })
       .catch((error) => console.log(error));
   }, [])
     return (

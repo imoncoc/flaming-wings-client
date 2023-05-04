@@ -1,22 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import './Chef.css'
 import SingleChef from "../SingleChef/SingleChef";
 import FadeLoader from "react-spinners/FadeLoader";
 import { useNavigation } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProviders";
 
 const Chef = () => {
+  const {setPreloader} = useContext(AuthContext)
     const [chef, setChef] = useState([]);
     // console.log(chef)
      const navigation = useNavigation();
-     if (navigation.state === "loading") {
-       return (
-         <div
-           className="col d-flex justify-content-center align-items-center"
-           style={{ height: "60vh" }}
-         >
-           <FadeLoader color="#e67e22" />
-         </div>
-       );
+     if (navigation.state === "idle") {
+       setPreloader(false);
      }
     
 
@@ -27,6 +22,7 @@ const Chef = () => {
           .then((res) => res.json())
           .then((data) => {
             setChef(data);
+            setPreloader(false);
           })
           .catch((error) => console.log(error));
     }, [])

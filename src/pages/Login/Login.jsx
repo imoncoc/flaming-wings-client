@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import './Login.css'
 import { useForm } from 'react-hook-form';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useNavigation } from 'react-router-dom';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AuthContext } from '../../providers/AuthProviders';
@@ -9,13 +9,18 @@ import { faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const { signIn, signInWithGoogle, signInWithGithub } =
+  const { signIn, signInWithGoogle, signInWithGithub, setPreloader } =
     useContext(AuthContext);
     const {register, formState: {errors}, handleSubmit, reset} = useForm();
     const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
+    const loaderNavigation = useNavigation();
+
+    if(loaderNavigation.state === 'idle'){
+       setPreloader(false);
+    }
     
 
 

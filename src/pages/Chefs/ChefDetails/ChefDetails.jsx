@@ -11,18 +11,14 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import LazyLoad from 'react-lazy-load';
 import { useNavigation } from "react-router-dom";
 import FadeLoader from "react-spinners/FadeLoader";
+import { useContext } from 'react';
+import { AuthContext } from '../../../providers/AuthProviders';
 
 const ChefDetails = () => {
+  const {setPreloader} = useContext(AuthContext)
  const navigation = useNavigation();
  if (navigation.state === "loading") {
-   return (
-     <div
-       className="col d-flex justify-content-center align-items-center"
-       style={{ height: "60vh" }}
-     >
-       <FadeLoader color="#e67e22" />
-     </div>
-   );
+   setPreloader(false)
  }
 
 
@@ -53,6 +49,7 @@ const ChefDetails = () => {
     .then((data) => {
       setChef(data.chef)
       setRecipes(data.recipes)
+      setPreloader(false)
     })
     .catch((error) => {
       setError(error)

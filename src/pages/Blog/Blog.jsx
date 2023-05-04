@@ -2,20 +2,22 @@ import React, { useRef } from 'react';
 import Pdf from "react-to-pdf";
 import './Blog.css'
 import { createRef } from 'react';
+import { useNavigation } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProviders';
 
 const Blog = () => {
+      const {setPreloader} = useContext(AuthContext)
       const ref = createRef();
-      // const options = {
-      //   pageSize: "A4",
-      //   pageOrientation: "portrait",
-      //   pageMargins: [40, 60, 40, 60], // left, top, right, bottom
-      //   pageWidth: 800,
-      // };
       const options = {
         orientation: "landscape",
         unit: "px",
         format: [window.innerWidth * 0.55, window.innerHeight],
       };
+      const navigation = useNavigation();
+      if(navigation.state === 'idle'){
+        setPreloader(false);
+      }
 
 
 

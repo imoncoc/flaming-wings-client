@@ -11,6 +11,7 @@ const githubProvider = new GithubAuthProvider();
 const AuthProviders = ({children}) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true);
+    const [preloader, setPreloader] = useState(true);
 
 const createUser = (email, password) => {
     setLoading(true)
@@ -59,7 +60,9 @@ useEffect(() => {
       signInWithGoogle,
       signInWithGithub,
       logOut,
-      loading
+      loading,
+      preloader,
+      setPreloader,
     };
 
 
