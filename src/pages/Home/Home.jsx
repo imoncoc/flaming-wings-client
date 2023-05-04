@@ -2,8 +2,6 @@ import React from 'react';
 import './Home.css'
 import Chef from '../Chefs/Chef/Chef';
 import CustomerReview from '../CustomerReview/CustomerReview';
-import LoadingSpinner from '../../shared/LoadingSpinner/LoadingSpinner';
-import Pricing from '../AboutUs/AboutUs';
 import AboutUs from '../AboutUs/AboutUs';
 
 const Home = () => {

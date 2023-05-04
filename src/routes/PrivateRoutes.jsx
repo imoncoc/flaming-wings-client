@@ -2,13 +2,21 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../providers/AuthProviders';
 import { Navigate, useLocation } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
+import FadeLoader from "react-spinners/FadeLoader";
 
 const PrivateRoutes = ({children}) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
 
     if (loading) {
-      return <Spinner animation="border" variant="primary"></Spinner>;
+      return (
+        <div
+          className="col d-flex justify-content-center align-items-center"
+          style={{ height: "60vh" }}
+        >
+          <FadeLoader color="#e67e22" />
+        </div>
+      );
     }
     if (user) {
       return children;

@@ -9,8 +9,8 @@ import Swal from "sweetalert2";
 import ErrorPage from '../../ErrorPage/ErrorPage';
 import "react-lazy-load-image-component/src/effects/blur.css";
 import LazyLoad from 'react-lazy-load';
-import FadeLoader from "react-spinners/FadeLoader";
 import { useNavigation } from "react-router-dom";
+import FadeLoader from "react-spinners/FadeLoader";
 
 const ChefDetails = () => {
  const navigation = useNavigation();
@@ -20,7 +20,7 @@ const ChefDetails = () => {
        className="col d-flex justify-content-center align-items-center"
        style={{ height: "60vh" }}
      >
-       <FadeLoader color="#36d7b7" />
+       <FadeLoader color="#e67e22" />
      </div>
    );
  }

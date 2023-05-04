@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { set } from 'react-hook-form';
-import { Link } from 'react-router-dom';
 import './Recipes.css'
 import { Rating } from '@smastrom/react-rating';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';

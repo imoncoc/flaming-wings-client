@@ -4,7 +4,7 @@ import './Blog.css'
 import { createRef } from 'react';
 
 const Blog = () => {
-      const ref = createRef(null);
+      const ref = createRef();
       // const options = {
       //   pageSize: "A4",
       //   pageOrientation: "portrait",
@@ -22,12 +22,12 @@ const Blog = () => {
     return (
       <div>
         <div className="App text-center mt-5">
-          <Pdf
+          <Pdf 
             targetRef={ref}
             filename="blog.pdf"
             options={options}
-            x={0}
-            y={0}
+            x={0.5}
+            y={0.5}
             scale={1}
           >
             {({ toPdf }) => (

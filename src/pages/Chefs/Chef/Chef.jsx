@@ -10,8 +10,11 @@ const Chef = () => {
      const navigation = useNavigation();
      if (navigation.state === "loading") {
        return (
-         <div className="col d-flex justify-content-center align-items-center" style={{height: '60vh'}}>
-           <FadeLoader color="#36d7b7" />
+         <div
+           className="col d-flex justify-content-center align-items-center"
+           style={{ height: "60vh" }}
+         >
+           <FadeLoader color="#e67e22" />
          </div>
        );
      }
