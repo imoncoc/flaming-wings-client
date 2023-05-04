@@ -5,17 +5,22 @@ import { createRef } from 'react';
 
 const Blog = () => {
       const ref = createRef(null);
+      // const options = {
+      //   pageSize: "A4",
+      //   pageOrientation: "portrait",
+      //   pageMargins: [40, 60, 40, 60], // left, top, right, bottom
+      //   pageWidth: 800,
+      // };
       const options = {
-        pageSize: "A4",
-        pageOrientation: "portrait",
-        pageMargins: [40, 60, 40, 60], // left, top, right, bottom
-        pageWidth: 800,
+        orientation: "landscape",
+        unit: "px",
+        format: [window.innerWidth * 0.55, window.innerHeight],
       };
 
 
 
     return (
-      <div ref={ref}>
+      <div ref={ref} style={{ width: "100%", height: "100%" }}>
         <div className="container">
           <div className="row">
             <div className="col text-center mb-3 my-5">
@@ -150,16 +155,20 @@ const Blog = () => {
               </div>
             </div>
 
-            <div className="App text-end">
+            <div className="App text-center my-5">
               <Pdf
                 targetRef={ref}
-                filename="code-example.pdf"
+                filename="blog.pdf"
                 options={options}
-                x={0.5}
-                y={0.5}
-                scale={0.8}
+                x={0}
+                y={0}
+                scale={1}
               >
-                {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
+                {({ toPdf }) => (
+                  <button className="btn home-btn" onClick={toPdf}>
+                    Generate Pdf
+                  </button>
+                )}
               </Pdf>
             </div>
           </div>

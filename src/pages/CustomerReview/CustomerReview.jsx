@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './CustomerReview.css'
+import LazyLoad from 'react-lazy-load';
 
 const CustomerReview = () => {
   const [images, setImages] = useState([])
@@ -128,11 +129,13 @@ const CustomerReview = () => {
                       key={indx}
                     >
                       <div className="gallery-item">
-                        <img
-                          className="img-fluid gallery-img w-100 h-100"
-                          src={image}
-                          alt=""
-                        />
+                        <LazyLoad height={'100%'}>
+                          <img
+                            className="img-fluid gallery-img w-100 h-100"
+                            src={image}
+                            alt=""
+                          />
+                        </LazyLoad>
                       </div>
                     </div>
                   ))}

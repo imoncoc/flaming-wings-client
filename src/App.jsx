@@ -18,7 +18,7 @@ function App() {
       <Header></Header>
       <Outlet></Outlet>
       <Footer></Footer>
-      {/* <Circle2 time={1500}></Circle2> */}
+      <Circle2 time={1500}></Circle2>
     </>
   );
 }

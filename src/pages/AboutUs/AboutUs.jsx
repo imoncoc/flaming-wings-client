@@ -1,6 +1,7 @@
 import React from "react";
 import "./AboutUs.css";
 import { Link } from "react-router-dom";
+import LazyLoad from "react-lazy-load";
 
 const AboutUs = () => {
   return (
@@ -34,11 +35,13 @@ const AboutUs = () => {
         </div>
         <div className="col-10 mx-auto col-md-6 my-5 align-self-center">
           <div className="about-img__container">
-            <img
-              src="https://images.unsplash.com/photo-1571903244693-227d7733a917?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-              className="img-fluid"
-              alt=""
-            />
+            <LazyLoad height={'100%'}>
+              <img
+                src="https://images.unsplash.com/photo-1571903244693-227d7733a917?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                className="img-fluid"
+                alt=""
+              />
+            </LazyLoad>
           </div>
         </div>
       </div>
