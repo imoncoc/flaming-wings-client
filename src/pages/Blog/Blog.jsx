@@ -1,9 +1,21 @@
-import React from 'react';
-import LoadingSpinner from '../../shared/LoadingSpinner/LoadingSpinner';
+import React, { useRef } from 'react';
+import Pdf from "react-to-pdf";
+import './Blog.css'
 
 const Blog = () => {
+      const ref = useRef(null);
+      const options = {
+        orientation: "landscape",
+        unit: "in",
+        format: [4, 2],
+      };
+
+
+
     return (
-      <div className="container">
+      <div
+        className="container"
+      >
         <div className="row">
           <div className="col text-center mb-3 my-5">
             <h1 className="text-uppercase color-mainDark">FAQ Section</h1>
@@ -133,6 +145,16 @@ const Blog = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div className="App">
+            <Pdf targetRef={ref} filename="code-example.pdf">
+              {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
+            </Pdf>
+            <div ref={ref}>
+              <h1>Hello CodeSandbox</h1>
+              <h2>Start editing to see some magic happen!</h2>
             </div>
           </div>
         </div>

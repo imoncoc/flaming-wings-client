@@ -3,6 +3,7 @@ import './SingleChef.css'
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faUtensils } from "@fortawesome/free-solid-svg-icons";
+import LazyLoad from "react-lazy-load";
 
 const SingleChef = ({singleChef}) => {
     const {
@@ -23,7 +24,9 @@ const SingleChef = ({singleChef}) => {
       <>
         <div className="col-10 mx-auto my-5 col-md-6 col-lg-4">
           <div className="card shadow">
-            <img src={picture} alt="car" className="card-img-top" />
+            <LazyLoad height={'100%'} threshold={0.95}>
+              <img src={picture} alt={name} className="card-img-top" />
+            </LazyLoad>
             <div className="card-body text-center customer-card-body">
               <img
                 src={profilePicture}
@@ -37,8 +40,7 @@ const SingleChef = ({singleChef}) => {
               </div>
               <h6 className="customer-job text-capitalize chef-role">{role}</h6>
               <p className="customer-quote text-center mx-auto text-muted">
-                Chef {name} been
-                working in the culinary industry for over{" "}
+                Chef {name} been working in the culinary industry for over{" "}
                 <span className="chef-title fw-semibold">{experience}</span>{" "}
                 years.
               </p>
