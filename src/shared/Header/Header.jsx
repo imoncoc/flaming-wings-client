@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = () => {
   const { logOut, user } = useContext(AuthContext)
-  console.log("Header", user)
+  // console.log("Header", user)
 
 
   const handleLogout = () => {
@@ -147,7 +147,7 @@ const Header = () => {
                     {user.email ? (
                       user.email
                     ) : (
-                      <span style={{ fontSize: "0.8rem" }}>No Gmail.</span>
+                      <span style={{ fontSize: "0.8rem" }}>Mr/Mrs.</span>
                     )}
                   </p>
                 </div>

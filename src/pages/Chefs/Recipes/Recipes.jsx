@@ -6,6 +6,7 @@ import { Rating } from '@smastrom/react-rating';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Swal from "sweetalert2";
+import LazyLoad from 'react-lazy-load';
 
 
 const Recipes = ({recipe}) => {
@@ -50,7 +51,9 @@ const Recipes = ({recipe}) => {
           className="card p-3 shadow bg-body-tertiary border-0 mx-auto"
           style={{ width: "22rem" }}
         >
-          <img src={recipe.strMealThumb} className="card-img-top" alt="..." />
+          <LazyLoad height={"100%"}>
+            <img src={recipe.strMealThumb} className="card-img-top" alt="..." />
+          </LazyLoad>
           <div className="card-body">
             <div className="d-flex justify-content-between align-items-center">
               <p className="card-title">

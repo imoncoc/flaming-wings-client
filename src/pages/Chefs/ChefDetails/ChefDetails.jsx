@@ -8,17 +8,32 @@ import Recipes from '../Recipes/Recipes';
 import Swal from "sweetalert2";
 import ErrorPage from '../../ErrorPage/ErrorPage';
 import "react-lazy-load-image-component/src/effects/blur.css";
-// import { LazyLoadImage } from 'react-lazy-load-image-component';
 import LazyLoad from 'react-lazy-load';
+import FadeLoader from "react-spinners/FadeLoader";
+import { useNavigation } from "react-router-dom";
 
 const ChefDetails = () => {
+ const navigation = useNavigation();
+ if (navigation.state === "loading") {
+   return (
+     <div
+       className="col d-flex justify-content-center align-items-center"
+       style={{ height: "60vh" }}
+     >
+       <FadeLoader color="#36d7b7" />
+     </div>
+   );
+ }
+
+
   // console.log(props)
   const {id} = useParams()
-  // console.log(id)
+  console.log(id)
   const [chef, setChef] = useState([]);
   const [recipes, setRecipes] = useState([]);
   const [bookmark, setBookmark] = useState(false);
-  // console.log(chef, recipes)
+  const [error, setError] = useState();
+  console.log(chef, recipes)
   // const [imgLoad, setImgLoad] = useState(false);
 
   const handleBookMark = ()=>{
@@ -39,7 +54,10 @@ const ChefDetails = () => {
       setChef(data.chef)
       setRecipes(data.recipes)
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      setError(error)
+      console.log(error);
+    });
    }, [])
 
   //  useEffect(() => {
@@ -51,8 +69,16 @@ const ChefDetails = () => {
   //    setImgLoad(false);
   //  }, [fullChefData?.chefPhoto]);
 
-   if(chef.length > 0){
-    <ErrorPage></ErrorPage>
+   if (Array.isArray(chef) && chef.length === 0) {
+     return (
+       <div className="container">
+         <div className="row">
+           <div className="col-10 mx-auto d-flex justify-content-center align-items-center " style={{height: '90vh'}}>
+             <h2>Page is Not Found</h2>
+           </div>
+         </div>
+       </div>
+     );
    }
 
     return (

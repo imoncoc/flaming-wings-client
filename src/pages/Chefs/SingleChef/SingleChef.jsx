@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faUtensils } from "@fortawesome/free-solid-svg-icons";
 import LazyLoad from "react-lazy-load";
 
+
 const SingleChef = ({singleChef}) => {
     const {
       experience,
@@ -17,6 +18,9 @@ const SingleChef = ({singleChef}) => {
       role,
     } = singleChef;
     // console.log(experience)
+    // console.log(singleChef)
+
+   
 
 
 

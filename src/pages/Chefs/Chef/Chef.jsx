@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from "react";
 import './Chef.css'
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faUtensils } from "@fortawesome/free-solid-svg-icons";
 import SingleChef from "../SingleChef/SingleChef";
+import FadeLoader from "react-spinners/FadeLoader";
+import { useNavigation } from "react-router-dom";
 
 const Chef = () => {
     const [chef, setChef] = useState([]);
     // console.log(chef)
+     const navigation = useNavigation();
+     if (navigation.state === "loading") {
+       return (
+         <div className="col d-flex justify-content-center align-items-center" style={{height: '60vh'}}>
+           <FadeLoader color="#36d7b7" />
+         </div>
+       );
+     }
+    
 
 
     useEffect(()=> {
