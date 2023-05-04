@@ -79,6 +79,16 @@ const Header = () => {
                   Blog
                 </NavLink>
               </li>
+              <li className="nav-item fw-semibold">
+                <NavLink
+                  to="/about"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link default"
+                  }
+                >
+                  About
+                </NavLink>
+              </li>
               {/* <li className="fw-semibold">
                 <NavLink
                   to="/login"
@@ -130,14 +140,14 @@ const Header = () => {
                         user?.displayName ? user.displayName : "No Name Found!"
                       }
                     >
-                      <FontAwesomeIcon className='user-icon' icon={faUser} />
+                      <FontAwesomeIcon className="user-icon" icon={faUser} />
                     </div>
                   )}
                   <p className="user-email my-2 ms-1 fw-semibold">
                     {user.email ? (
                       user.email
                     ) : (
-                      <span style={{fontSize: "0.8rem"}}>No Gmail.</span>
+                      <span style={{ fontSize: "0.8rem" }}>No Gmail.</span>
                     )}
                   </p>
                 </div>

@@ -1,0 +1,11 @@
+
+.bg-about {
+    /* background-image: url('images/flaming-wings.jpg');
+    object-fit: cover; */
+
+    min-height: 95vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://i.ibb.co/H48hdFf/about-02.jpg') no-repeat center fixed;
+    background-size: cover;
+    width: 100%;
+    object-fit: cover;
+}

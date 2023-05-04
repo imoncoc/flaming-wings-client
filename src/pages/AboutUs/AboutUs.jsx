@@ -1,5 +1,6 @@
 import React from "react";
 import "./AboutUs.css";
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   return (
@@ -25,9 +26,11 @@ const AboutUs = () => {
             engaging and enjoyable learning experience that will inspire you to
             explore new flavors and techniques.
           </p>
-          <button href="#" className="btn home-btn text-uppercase">
-            explore
-          </button>
+          <Link to="/about">
+            <button href="#" className="btn home-btn text-uppercase">
+              explore
+            </button>
+          </Link>
         </div>
         <div className="col-10 mx-auto col-md-6 my-5 align-self-center">
           <div className="about-img__container">

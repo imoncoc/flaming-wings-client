@@ -7,6 +7,9 @@ import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import Recipes from '../Recipes/Recipes';
 import Swal from "sweetalert2";
 import ErrorPage from '../../ErrorPage/ErrorPage';
+import "react-lazy-load-image-component/src/effects/blur.css";
+// import { LazyLoadImage } from 'react-lazy-load-image-component';
+import LazyLoad from 'react-lazy-load';
 
 const ChefDetails = () => {
   // console.log(props)
@@ -15,7 +18,8 @@ const ChefDetails = () => {
   const [chef, setChef] = useState([]);
   const [recipes, setRecipes] = useState([]);
   const [bookmark, setBookmark] = useState(false);
-  console.log(chef, recipes)
+  // console.log(chef, recipes)
+  // const [imgLoad, setImgLoad] = useState(false);
 
   const handleBookMark = ()=>{
     setBookmark(!bookmark)
@@ -38,6 +42,15 @@ const ChefDetails = () => {
     .catch((error) => console.log(error));
    }, [])
 
+  //  useEffect(() => {
+  //    const img = new Image();
+  //    img.onload = () => {
+  //      setImgLoad(true);
+  //    };
+  //    img.src = fullChefData?.chefPhoto;
+  //    setImgLoad(false);
+  //  }, [fullChefData?.chefPhoto]);
+
    if(chef.length > 0){
     <ErrorPage></ErrorPage>
    }
@@ -56,11 +69,21 @@ const ChefDetails = () => {
 
           <div className="row">
             <div className="col-10 col-lg-5 mx-auto my-5">
-              <img
+              <LazyLoad height={"100%"} >
+                <img
+                  className="img-fluid w-100 h-100 rounded"
+                  src={chef.profilePicture}
+                  alt=""
+                />
+              </LazyLoad>
+              {/* <LazyLoadImage
+                src={chef?.profilePicture}
                 className="img-fluid w-100 h-100 rounded"
-                src={chef.profilePicture}
-                alt=""
-              />
+                loading="lazy"
+                effect="blur"
+                alt="Chef"
+                placeholderSrc={chef?.profilePicture.blurhash}
+              /> */}
             </div>
             <div className="col-10 col-lg-5 mx-auto my-5 text-start chefDetails-bg p-5 rounded d-flex justify-content-center align-items-center">
               <div className="div">

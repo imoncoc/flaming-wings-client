@@ -8,6 +8,7 @@ import ErrorPage from '../pages/ErrorPage/ErrorPage';
 import Register from '../pages/Register/Register';
 import ChefDetails from '../pages/Chefs/ChefDetails/ChefDetails';
 import PrivateRoutes from './PrivateRoutes';
+import AboutPage from '../pages/AboutPage/AboutPage';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
       },
+      {
+        path: '/about',
+        element: <AboutPage></AboutPage>
+      }
     ],
   },
 ]);

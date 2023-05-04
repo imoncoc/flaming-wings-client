@@ -24,15 +24,17 @@ const SingleChef = ({singleChef}) => {
       <>
         <div className="col-10 mx-auto my-5 col-md-6 col-lg-4">
           <div className="card shadow">
-            <LazyLoad height={'100%'} threshold={0.95}>
+            <LazyLoad height={"100%"}>
               <img src={picture} alt={name} className="card-img-top" />
             </LazyLoad>
             <div className="card-body text-center customer-card-body">
-              <img
-                src={profilePicture}
-                className="customer-img rounded-circle"
-                alt="customer image"
-              />
+              <LazyLoad height={"100%"}>
+                <img
+                  src={profilePicture}
+                  className="customer-img rounded-circle"
+                  alt="customer image"
+                />
+              </LazyLoad>
               <div className="card-title">
                 <h5 className="customer-name text-capitalize chef-title">
                   {name}
