@@ -256,7 +256,7 @@ const Register = () => {
               <div className="">
                 <p className="">
                   Already a User?{" "}
-                  <Link to="/register" className="link-opacity-75-hover">
+                  <Link to="/login" className="link-opacity-75-hover">
                     Login
                   </Link>
                 </p>
