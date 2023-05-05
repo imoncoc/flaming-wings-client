@@ -20,7 +20,10 @@ function App() {
       <Header></Header>
       <Outlet></Outlet>
       <Footer></Footer>
-      <Circle2 customLoading={preloader} color={"#e67e22"}></Circle2>
+      <Circle2
+        customLoading={preloader}
+        color={"#e67e22"}
+      ></Circle2>
     </>
   );
 }

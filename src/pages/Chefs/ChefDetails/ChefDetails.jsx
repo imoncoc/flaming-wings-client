@@ -31,6 +31,7 @@ const ChefDetails = () => {
   const [error, setError] = useState();
   console.log(chef, recipes)
   // const [imgLoad, setImgLoad] = useState(false);
+  
 
   const handleBookMark = ()=>{
     setBookmark(!bookmark)
@@ -67,6 +68,7 @@ const ChefDetails = () => {
   //  }, [fullChefData?.chefPhoto]);
 
    if (Array.isArray(chef) && chef.length === 0) {
+    setPreloader(false);
      return (
        <div className="container">
          <div className="row">
