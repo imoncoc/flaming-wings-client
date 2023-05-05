@@ -6,13 +6,13 @@ import { useNavigation } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProviders";
 
 const Chef = () => {
-  const {setPreloader} = useContext(AuthContext)
+  // const {setPreloader} = useContext(AuthContext)
     const [chef, setChef] = useState([]);
     // console.log(chef)
-     const navigation = useNavigation();
-     if (navigation.state === "idle") {
-       setPreloader(false);
-     }
+    //  const navigation = useNavigation();
+    //  if (navigation.state === "idle") {
+    //    setPreloader(false);
+    //  }
     
 
 
@@ -22,7 +22,7 @@ const Chef = () => {
           .then((res) => res.json())
           .then((data) => {
             setChef(data);
-            setPreloader(false);
+            // setPreloader(false);
           })
           .catch((error) => console.log(error));
     }, [])

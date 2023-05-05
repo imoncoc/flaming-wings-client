@@ -92,9 +92,9 @@ const ChefDetails = () => {
 
           <div className="row">
             <div className="col-10 col-lg-5 mx-auto my-5">
-              <LazyLoad height={"100%"} >
+              <LazyLoad height={"100%"}>
                 <img
-                  className="img-fluid w-100 h-100 rounded"
+                  className="img-fluid w-100 h-100 rounded shadow"
                   src={chef.profilePicture}
                   alt=""
                 />
@@ -108,7 +108,7 @@ const ChefDetails = () => {
                 placeholderSrc={chef?.profilePicture.blurhash}
               /> */}
             </div>
-            <div className="col-10 col-lg-5 mx-auto my-5 text-start chefDetails-bg p-5 rounded d-flex justify-content-center align-items-center">
+            <div className="col-10 col-lg-5 mx-auto my-5 text-start chefDetails-bg p-5 rounded d-flex justify-content-center align-items-center shadow">
               <div className="div">
                 <div className="d-flex justify-content-between align-items-center">
                   <h2 className="chefDetails-name">{chef.name}</h2>

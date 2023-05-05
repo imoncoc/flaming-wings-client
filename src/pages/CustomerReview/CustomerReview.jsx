@@ -51,11 +51,13 @@ const CustomerReview = () => {
               <div className="row">
                 <div className="col-10 col-lg-6 mx-auto my-3">
                   <div>
-                    <img
-                      src="https://i.ibb.co/YckG58y/customer-4.jpg"
-                      alt=""
-                      className="img-fluid review-img"
-                    />
+                    <LazyLoad height={"100%"}>
+                      <img
+                        src="https://i.ibb.co/YckG58y/customer-4.jpg"
+                        alt=""
+                        className="img-fluid review-img"
+                      />
+                    </LazyLoad>
                     <figure>
                       <blockquote className="blockquote">
                         <p className="review-text">
@@ -71,11 +73,13 @@ const CustomerReview = () => {
                 </div>
                 <div className="col-10 col-lg-6 mx-auto my-3">
                   <div>
-                    <img
-                      src="https://i.ibb.co/SwJtP2G/ben.jpg"
-                      alt=""
-                      className="img-fluid review-img"
-                    />
+                    <LazyLoad height={"100%"}>
+                      <img
+                        src="https://i.ibb.co/SwJtP2G/ben.jpg"
+                        alt=""
+                        className="img-fluid review-img"
+                      />
+                    </LazyLoad>
                     <figure>
                       <blockquote className="blockquote">
                         <p className="review-text">
@@ -91,11 +95,13 @@ const CustomerReview = () => {
                 </div>
                 <div className="col-10 col-lg-6 mx-auto my-3">
                   <div>
-                    <img
-                      src="https://i.ibb.co/8BpBSvB/steve.jpg"
-                      alt=""
-                      className="img-fluid review-img"
-                    />
+                    <LazyLoad height={"100%"}>
+                      <img
+                        src="https://i.ibb.co/8BpBSvB/steve.jpg"
+                        alt=""
+                        className="img-fluid review-img"
+                      />
+                    </LazyLoad>
                     <figure>
                       <blockquote className="blockquote">
                         <p className="review-text">
@@ -111,11 +117,13 @@ const CustomerReview = () => {
                 </div>
                 <div className="col-10 col-lg-6 mx-auto my-3">
                   <div>
-                    <img
-                      src="https://i.ibb.co/93WQrqh/customer-6.jpg"
-                      alt=""
-                      className="img-fluid review-img"
-                    />
+                    <LazyLoad height={"100%"}>
+                      <img
+                        src="https://i.ibb.co/93WQrqh/customer-6.jpg"
+                        alt=""
+                        className="img-fluid review-img"
+                      />
+                    </LazyLoad>
                     <figure>
                       <blockquote className="blockquote">
                         <p className="review-text">
@@ -142,7 +150,7 @@ const CustomerReview = () => {
                       key={indx}
                     >
                       <div className="gallery-item">
-                        <LazyLoad height={'100%'}>
+                        <LazyLoad height={"100%"}>
                           <img
                             className="img-fluid gallery-img w-100 h-100"
                             src={image}
