@@ -120,7 +120,7 @@ const Header = () => {
 
             {user ? (
               <div
-                className="d-flex justify-content-around align-items-center text-center"
+                className="d-flex justify-content-between  align-items-center text-center"
                 style={{ width: "20rem" }}
               >
                 <div className="d-flex align-items-center">
@@ -145,7 +145,10 @@ const Header = () => {
                   )}
                   <p className="user-email my-2 ms-1 fw-semibold">
                     {user.email ? (
-                      user.email
+                      <span>
+                        {user?.email.substring(0, 3)}....
+                        {user?.email.substring(user.email.length - 10)}
+                      </span>
                     ) : (
                       <span style={{ fontSize: "0.8rem" }}>Mr/Mrs.</span>
                     )}
