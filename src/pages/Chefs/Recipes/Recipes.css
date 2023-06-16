@@ -15,3 +15,28 @@
     border-radius: 1rem;
     font-size: 0.7rem;
 }
+
+.card-width{
+    width: 22rem;
+}
+
+@media (max-width: 1140px) {
+    .card-width {
+            width: 19rem;
+        }
+}
+@media (max-width: 960px) {
+    .card-width {
+        width: 21rem;
+    }
+}
+@media (max-width: 720px) {
+    .card-width {
+        width: 25rem;
+    }
+}
+@media (max-width: 540px) {
+    .card-width {
+        width: 18rem;
+    }
+}

@@ -46,8 +46,8 @@ const Recipes = ({recipe}) => {
     return (
       <div className="col-10 col-md-6 col-lg-4 mx-auto my-5">
         <div
-          className="card p-3 shadow bg-body-tertiary border-0 mx-auto"
-          style={{ width: "22rem" }}
+          className="card card-width p-3 shadow bg-body-tertiary border-0 mx-auto"
+          
         >
           <LazyLoad height={"100%"}>
             <img src={recipe.strMealThumb} className="card-img-top" alt="..." />
